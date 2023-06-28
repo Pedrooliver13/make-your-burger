@@ -1,0 +1,21 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: url("/public/img/burger.jpg") no-repeat;
+  background-position: 0px -250px;
+  background-size: cover;
+  height: 450px;
+}
+
+.banner .banner__content h1 {
+  max-width: 400px;
+  font-weight: bold;
+  font-size: 4rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--gray-800);
+  color: var(--white);
+  margin: 5rem 0;
+}

@@ -1,4 +1,6 @@
 import NavBar from "./navBar/navBar.vue";
 import Footer from "./footer/footer.vue";
+import Banner from "./banner/banner.vue";
+import BurgerForm from "./burgerForm/burgerForm.vue";
 
-export { NavBar, Footer };
+export { NavBar, Footer, Banner, BurgerForm };

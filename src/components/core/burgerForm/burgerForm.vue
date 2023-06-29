@@ -76,14 +76,18 @@ export default {
   },
   methods: {
     async getIngredients() {
-      const response = await fetch("http://localhost:3000/ingredientes");
-      const data = await response.json();
+      try {
+        const response = await fetch("http://localhost:3000/ingredientes");
+        const data = await response.json();
 
-      this.paes = data.paes;
-      this.carnes = data.carnes;
-      this.opcionaisdata = data.opcionais;
+        this.paes = data.paes;
+        this.carnes = data.carnes;
+        this.opcionaisdata = data.opcionais;
 
-      return data;
+        return data;
+      } catch (err) {
+        console.error(err);
+      }
     },
     reset() {
       this.nome = "";
@@ -109,20 +113,24 @@ export default {
       e.preventDefault();
       const data = this.prepareData();
 
-      const response = await fetch("http://localhost:3000/burgers", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: data,
-      });
+      try {
+        const response = await fetch("http://localhost:3000/burgers", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data,
+        });
 
-      const responseJson = await response.json();
+        const responseJson = await response.json();
 
-      this.reset();
-      this.dispatchMessage(
-        `Pedido Nº${responseJson?.id} realizado com sucesso`
-      );
+        this.reset();
+        this.dispatchMessage(
+          `Pedido Nº${responseJson?.id} realizado com sucesso`
+        );
+      } catch (err) {
+        console.error(err);
+      }
     },
   },
   mounted() {

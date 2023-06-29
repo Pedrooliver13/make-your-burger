@@ -1,9 +1,22 @@
 <script>
+import { Dashboard } from "@/components/core";
+
 export default {
   name: "Requests",
+  components: {
+    Dashboard,
+  },
 };
 </script>
 
 <template>
-  <h1>Pedidos</h1>
+  <div class="content">
+    <Dashboard />
+  </div>
 </template>
+
+<style scoped>
+.content {
+  min-height: 86vh;
+}
+</style>

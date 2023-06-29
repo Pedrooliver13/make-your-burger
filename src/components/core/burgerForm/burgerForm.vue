@@ -1,3 +1,89 @@
+<script>
+import Message from "@/components/core/message/message.vue";
+import "./styles.css";
+
+export default {
+  name: "BurgerForm",
+  components: {
+    Message,
+  },
+  data() {
+    return {
+      paes: null,
+      carnes: null,
+      opcionaisdata: null,
+      nome: null,
+      pao: "",
+      carne: "",
+      opcionais: [],
+      msg: null,
+    };
+  },
+  methods: {
+    async getIngredients() {
+      try {
+        const response = await fetch("http://localhost:3000/ingredientes");
+        const data = await response.json();
+
+        this.paes = data.paes;
+        this.carnes = data.carnes;
+        this.opcionaisdata = data.opcionais;
+
+        return data;
+      } catch (err) {
+        console.error(err);
+      }
+    },
+    reset() {
+      this.nome = "";
+      this.carne = "";
+      this.pao = "";
+      this.opcionais = "";
+    },
+    prepareData() {
+      return JSON.stringify({
+        nome: this.nome,
+        carne: this.carne,
+        pao: this.pao,
+        opcionais: Array.from(this.opcionais),
+        status: "Solicitado",
+      });
+    },
+    dispatchMessage(message = "Sucesso") {
+      this.msg = message;
+      const timeout = setTimeout(() => (this.msg = ""), 2000);
+      clearTimeout(timeout);
+    },
+    async handleSubmit(e) {
+      e.preventDefault();
+      const data = this.prepareData();
+
+      try {
+        const response = await fetch("http://localhost:3000/burgers", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: data,
+        });
+
+        const responseJson = await response.json();
+
+        this.reset();
+        this.dispatchMessage(
+          `Pedido Nº${responseJson?.id} realizado com sucesso!`
+        );
+      } catch (err) {
+        console.error(err);
+      }
+    },
+  },
+  mounted() {
+    this.getIngredients();
+  },
+};
+</script>
+
 <template>
   <div class="container">
     <form class="form" id="burger-form" @submit="handleSubmit">
@@ -52,89 +138,3 @@
     </form>
   </div>
 </template>
-
-<script>
-import Message from "../message/message.vue";
-import "./styles.css";
-
-export default {
-  name: "BurgerForm",
-  components: {
-    Message,
-  },
-  data() {
-    return {
-      paes: null,
-      carnes: null,
-      opcionaisdata: null,
-      nome: null,
-      pao: "",
-      carne: "",
-      opcionais: [],
-      msg: null,
-    };
-  },
-  methods: {
-    async getIngredients() {
-      try {
-        const response = await fetch("http://localhost:3000/ingredientes");
-        const data = await response.json();
-
-        this.paes = data.paes;
-        this.carnes = data.carnes;
-        this.opcionaisdata = data.opcionais;
-
-        return data;
-      } catch (err) {
-        console.error(err);
-      }
-    },
-    reset() {
-      this.nome = "";
-      this.carne = "";
-      this.pao = "";
-      this.opcionais = "";
-    },
-    prepareData() {
-      return JSON.stringify({
-        nome: this.nome,
-        carne: this.carne,
-        pao: this.pao,
-        opcionais: Array.from(this.opcionais),
-        status: "Solicitado",
-      });
-    },
-    dispatchMessage(message = "Sucesso") {
-      this.msg = message;
-      setTimeout(() => (this.msg = ""), 2000);
-      clearTimeout();
-    },
-    async handleSubmit(e) {
-      e.preventDefault();
-      const data = this.prepareData();
-
-      try {
-        const response = await fetch("http://localhost:3000/burgers", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: data,
-        });
-
-        const responseJson = await response.json();
-
-        this.reset();
-        this.dispatchMessage(
-          `Pedido Nº${responseJson?.id} realizado com sucesso`
-        );
-      } catch (err) {
-        console.error(err);
-      }
-    },
-  },
-  mounted() {
-    this.getIngredients();
-  },
-};
-</script>

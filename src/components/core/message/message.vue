@@ -1,9 +1,3 @@
-<template>
-  <div class="message" v-if="msg">
-    <p>{{ msg }}</p>
-  </div>
-</template>
-
 <script>
 import "./styles.css";
 
@@ -14,3 +8,9 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div class="message" v-if="msg">
+    <p>{{ msg }}</p>
+  </div>
+</template>

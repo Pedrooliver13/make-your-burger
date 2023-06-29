@@ -87,7 +87,7 @@
         "Salame",
         "Cebola roxa"
       ],
-      "status": "Finalizado",
+      "status": "Em produção",
       "id": 1
     },
     {
@@ -98,99 +98,8 @@
         "Salame",
         "Cebola roxa"
       ],
-      "status": "Solicitado",
-      "id": 4
-    },
-    {
-      "nome": "Pedro",
-      "carne": null,
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Bacon",
-        "Salame"
-      ],
-      "status": "Solicitado",
-      "id": 5
-    },
-    {
-      "nome": "Pedro",
-      "carne": null,
-      "pao": "",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado",
-      "id": 6
-    },
-    {
-      "nome": "Pedro",
-      "carne": null,
-      "pao": null,
-      "opcionais": [
-        "Tomate",
-        "Pepino",
-        "Cheddar"
-      ],
-      "status": "Solicitado",
-      "id": 7
-    },
-    {
-      "nome": null,
-      "carne": null,
-      "pao": null,
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 8
-    },
-    {
-      "nome": "Pedro",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado",
-      "id": 9
-    },
-    {
-      "nome": "Pedro",
-      "carne": "Alcatra",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado",
-      "id": 10
-    },
-    {
-      "nome": "Pedro",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado",
-      "id": 11
-    },
-    {
-      "nome": "Pedro",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado",
-      "id": 12
-    },
-    {
-      "nome": "Pedro",
-      "carne": "Maminha",
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado",
-      "id": 13
+      "status": "Em produção",
+      "id": 2
     }
   ]
 }

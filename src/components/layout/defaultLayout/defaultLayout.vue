@@ -1,5 +1,5 @@
 <script>
-import { NavBar, Footer } from "../../core";
+import { NavBar, Footer } from "@/components/core";
 
 export default {
   name: "DefaultLayout",

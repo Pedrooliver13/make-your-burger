@@ -1,0 +1,43 @@
+.burger-table__header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-bottom: 1px solid var(--gray-700);
+}
+
+.burger-table__header,
+.burger-table__body .burger-table__row {
+  display: flex;
+  gap: 10px;
+}
+
+.burger-table__body div,
+.burger-table__header div {
+  flex: 1;
+  padding: 0.8rem 0rem;
+}
+
+.burger-table__body .burger-table__row {
+  border-bottom: 1px solid #ccc;
+}
+
+.burger-table__body div:last-child {
+  display: flex;
+  gap: 4px;
+}
+
+.delete-btn {
+  background-color: var(--gray-800);
+  color: var(--orange-500);
+  font-weight: bold;
+  border: 2px solid var(--gray-800);
+  padding: 1rem;
+  font-size: 1.6rem;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.delete-btn:hover {
+  background-color: transparent;
+  color: #222;
+}

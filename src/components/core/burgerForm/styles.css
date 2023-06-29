@@ -38,10 +38,6 @@
   flex-wrap: wrap;
 }
 
-#opcionais-title {
-  width: 100%;
-}
-
 .checkbox-container {
   display: flex;
   align-items: flex-start;
@@ -49,12 +45,12 @@
   margin-bottom: 20px;
 }
 
-.checkbox-container span,
+.checkbox-container label,
 .checkbox-container input {
   width: auto;
 }
 
-.checkbox-container span {
+.checkbox-container label {
   margin-left: 6px;
   font-weight: bold;
 }
